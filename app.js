@@ -1,3 +1,26 @@
+const navSlide = () =>{
+    const burger = document.querySelector('.burger')
+    const nav = document.querySelector('.nav-links')
+    const navLinks = document.querySelectorAll("nav-links li")
+
+    burger.addEventListener("click", ()=>{
+        //Toggle
+        nav.classList.toggle('nav-active')
+         //Animation links
+        navLinks.forEach((link, index)=>{
+            console.log(index)
+            if(link.style.animation){
+                link.style.animation ="";
+            } else{
+                link.style.animation = `navLinkFade 0.5s ease forwards ${index / 7 + 1.5}s`;
+            }
+            })
+            //burger animation
+            burger.classList.toggle("toggle")
+    })
+}
+navSlide();
+
 const menuItems = [
 {
     id:1,
@@ -50,6 +73,7 @@ const desc= document.getElementById("desc")
 const prev= document.getElementById("prev")
 const random= document.getElementById("random")
 const next= document.getElementById("next")
+
 
 let currentMenu=0;
 
